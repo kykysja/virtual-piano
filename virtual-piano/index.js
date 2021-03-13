@@ -1,5 +1,7 @@
 const piano = document.querySelector('.piano');
-const pianoKeys = document.querySelectorAll('piano-key');
+const pianoKeys = document.querySelectorAll('.piano-key');
+const btnNotes = document.querySelector('.btn-notes');
+const btnLetters = document.querySelector('.btn-letters');
 
 function playAudio(audio) {
 	if (!audio) return;
@@ -35,3 +37,25 @@ window.addEventListener('keydown', function (event) {
 		}
 	}
 })
+
+btnLetters.addEventListener('click', function () {
+
+	for (let pianoKey of pianoKeys) {
+		pianoKey.classList.remove('piano-key-notes');
+		pianoKey.classList.add('piano-key-letter');
+	}
+	btnLetters.classList.add('btn-active');
+	btnNotes.classList.remove('btn-active');
+})
+
+btnNotes.addEventListener('click', function () {
+
+	for (let pianoKey of pianoKeys) {
+		pianoKey.classList.add('piano-key-notes');
+		pianoKey.classList.remove('piano-key-letter');
+	}
+	btnLetters.classList.remove('btn-active');
+	btnNotes.classList.add('btn-active');
+})
+
+
