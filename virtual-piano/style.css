@@ -142,17 +142,18 @@ body {
 }
 .piano-key-notes::after {
 	content: attr(data-note);
+	pointer-events: none;
 }
 .piano-key-letter::after {
-	/*display: none;*/
 	content: attr(data-letter);
+	pointer-events: none;
 }
 .piano-key:hover::before,
 .piano-key:hover::after {
 	color: #fff;
 }
-.piano-key:active::before,
-.piano-key:active::after {
+.piano-key.piano-key-active::before,
+.piano-key.piano-key-active::after {
 	color: #00b4a4;
 }
 .piano-key.sharp::before,
